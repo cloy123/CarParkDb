@@ -1,0 +1,50 @@
+<Window x:Class="CarParkDb.UI.Requests.SelectCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CarParkDb.UI.Requests"
+        mc:Ignorable="d"
+        Title="Выбрать автомобиль" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="Cars" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name.Firm}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Firm">Фирма</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name.Model}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Model">Модель</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Number}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Number">Номер</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Status.Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Status">Статус</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="Ok" Content="Ok" Grid.Row="1" Click="Ok_Click"/>
+        <Button x:Name="Cancel" Content="Отмена" Grid.Row="1" Grid.Column="1" Click="Cancel_Click"/>
+
+    </Grid>
+</Window>
